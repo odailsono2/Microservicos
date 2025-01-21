@@ -3,7 +3,6 @@ package com.example.banco.controller;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,9 +20,6 @@ import com.example.banco.service.banco.Banco;
 @RequestMapping("/banco")
 public class ControllerBanco {
 
-    @Value("${banco.limite.transferencia}")
-    private double limiteTransferencia;
-
     private Banco banco;
 
 
@@ -33,7 +29,7 @@ public class ControllerBanco {
 
     @GetMapping("/public/hello")
     public String hello() {
-        return "Olá, Bem vindo ao Banco do Brezel!"+limiteTransferencia;
+        return "Olá, Bem vindo ao Banco do Brezel!";
     }
 
     
