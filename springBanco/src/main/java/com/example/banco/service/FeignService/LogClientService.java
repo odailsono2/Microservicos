@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import com.example.banco.FeignInterface.LogClient;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+
 @Service
 public class LogClientService {
 
@@ -15,6 +17,7 @@ public class LogClientService {
         this.logClient = logClient;
     }
 
+    @CircuitBreaker(name = "bancoLog-service")
     public String sendLog(String log){
         return logClient.sendLog(log);
     }
